@@ -1,8 +1,11 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+body {
+    font-family: 'Merriweather', serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 /* header styling  */
 header {
     height: 100px;
@@ -11,12 +14,15 @@ header {
     align-items: center;
     background-color: #116A7B;
 }
+
 header img {
     margin-left: 20px;
 }
+
 header nav {
-   width: 250px; 
+    width: 250px;
 }
+
 header nav ul {
     margin-right: 25px;
     display: flex;
@@ -24,24 +30,60 @@ header nav ul {
     justify-content: space-around;
     list-style: none;
 }
+
 header nav ul li {
     padding: 10px;
 }
-header nav ul li a{
+
+header nav ul li a {
     text-decoration: none;
     color: beige;
     font-size: larger;
 }
+
 /* header ending  */
 
+/* Hero Editing */
+#hero {
+    background: #333 url(../img/headway.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 /* employee styling */
-.employee {
-    min-height: 400px;
+.employee,
+#finance,
+#administration,
+#marketing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    min-height: 70vh;
     /* background-color: #333; */
 }
+
+#administration,
+#marketing {
+    background-color: #C2DEDC
+}
+
 .employee-container {
     padding: 10px 8px;
 }
+
 .container {
     margin: 7px;
     display: flex;
@@ -49,6 +91,7 @@ header nav ul li a{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .card {
     margin: 0px 10px 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -62,12 +105,64 @@ header nav ul li a{
 .employee-container {
     padding: 2px 16px;
 }
+
 img {
+    padding: 10px;
     width: fit-content;
     height: 300px;
     border-radius: 5px 5px 0 0;
 }
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
 /* employee ending  */
+
+/* form styling  */
+#form-section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-section .container form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+#form-section .container form .container {
+    display: flex;
+    flex-direction: row
+}
+
+#form-section .container form .container label {
+    margin-right: 10px;
+    padding: 0px 7px;
+}
+
+#form-section .container form .container input ,#form-section .container form .container select {
+    border-radius: 10px;
+    border: 2px solid #000;
+    padding: 7px;
+}
+#form-section .container form .container button {
+    margin-top: 10px;
+        padding: 10px 20px;
+        border-radius: 5%;
+        color: white;
+        background-color: #A6D0DD;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+}
+#form-section .container form .container button:hover {
+    color: black;
+    background-color: #FFD3B0;
+}
+/* end of form styling */
 /* footer styling  */
 
 footer {
