@@ -19,8 +19,8 @@ function Employee(id, fullName, department, level, imgURL, salary) {
     this.level = level;
 
 }
-const emp1 = new Employee(1000, 'Ghazi Samer', 'Administration', 'senior', "../assets/img/avatar2.png", 0);
-const emp2 = new Employee(1001, 'Lana Ali', 'Finance', 'senior', "../assets/img/avatar2.png", 0);
+const emp1 = new Employee(1000, 'Ghazi Samer', 'Administration', 'senior', "../assets/img/headway.jpg", 0);
+const emp2 = new Employee(1001, 'Lana Ali', 'Finance', 'senior', "./assets/img/avatar2.png", 0);
 const emp3 = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'senior', "../assets/img/avatar2.png", 0);
 const emp4 = new Employee(1003, 'Safi Walid', 'Administration', 'mid-senior', "../assets/img/avatar2.png", 0);
 const emp5 = new Employee(1004, 'Omar Zaid', 'Development', 'senior', "../assets/img/avatar2.png", 0);
