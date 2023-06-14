@@ -1,15 +1,14 @@
+let employees = localStorage.getItem('employees');
+const emp1 = new Employee(1000, 'Ghazi Samer', 'Administration', 'senior', "./assets/img/avatar2.png", 0);
+const emp2 = new Employee(1001, 'Lana Ali', 'Finance', 'senior', "./assets/img/avatar2.png", 0);
+const emp3 = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'senior', "./assets/img/avatar2.png", 0);
+const emp4 = new Employee(1003, 'Safi Walid', 'Administration', 'mid-senior', "./assets/img/avatar2.png", 0);
+const emp5 = new Employee(1004, 'Omar Zaid', 'Development', 'senior', "./assets/img/avatar2.png", 0);
+const emp6 = new Employee(1005, 'Rana Saleh', 'Development', 'junior', "./assets/img/avatar2.png", 0);
+const emp7 = new Employee(1006, 'Hadi Ahmad', 'Finance', 'mid-senior', "./assets/img/avatar2.png", 0);
+const demoEmployees = [emp1, emp2, emp3, emp4, emp5, emp6, emp7];
+
 const form = document.getElementById('add-employee-form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = e.target.fullName.value;
-    const image = e.target.imgUrl.value;
-    const level = e.target.level.value;
-    const dept = e.target.department.value;
-    const emp = new Employee(idGenerate(),name,dept,level,image,0);
-    emp.salary = emp.calculateSalary(level);
-    emp.render(emp);
-    form.reset()
-})
 function Employee(id, fullName, department, level, imgURL, salary) {
     this.id = id;
     this.fullName = fullName;
@@ -19,15 +18,7 @@ function Employee(id, fullName, department, level, imgURL, salary) {
     this.level = level;
 
 }
-const emp1 = new Employee(1000, 'Ghazi Samer', 'Administration', 'senior', "./assets/img/avatar2.png", 0);
-const emp2 = new Employee(1001, 'Lana Ali', 'Finance', 'senior', "./assets/img/avatar2.png", 0);
-const emp3 = new Employee(1002, 'Tamara Ayoub', 'Marketing', 'senior', "./assets/img/avatar2.png", 0);
-const emp4 = new Employee(1003, 'Safi Walid', 'Administration', 'mid-senior', "./assets/img/avatar2.png", 0);
-const emp5 = new Employee(1004, 'Omar Zaid', 'Development', 'senior', "./assets/img/avatar2.png", 0);
-const emp6 = new Employee(1005, 'Rana Saleh', 'Development', 'junior', "./assets/img/avatar2.png", 0);
-const emp7 = new Employee(1006, 'Hadi Ahmad', 'Finance', 'mid-senior', "./assets/img/avatar2.png", 0);
 
-const employees = [emp1, emp2, emp3, emp4, emp5, emp6, emp7];
 
 Employee.prototype.calculateSalary = function (lvl) {
     let min, max;
@@ -37,25 +28,25 @@ Employee.prototype.calculateSalary = function (lvl) {
             max = 2000;
             min = 1500;
             salary = generateRandomNumber(max, min);
-            console.log(salary);
+            // console.log(salary);
             salary -= Math.floor(salary * .075);
-            console.log(salary);
+            // console.log(salary);
             break;
         case 'mid-senior':
             max = 1500;
             min = 1000;
             salary = generateRandomNumber(max, min);
-            console.log(salary);
+            // console.log(salary);
             salary -= Math.floor(salary * .075);
-            console.log(salary);
+            // console.log(salary);
             break;
         case 'junior':
             max = 1000;
             min = 500;
             salary = generateRandomNumber(max, min);
-            console.log(salary);
+            // console.log(salary);
             salary -= Math.floor(salary * .075);
-            console.log(salary);
+            // console.log(salary);
             break;
 
         default:
@@ -101,9 +92,45 @@ const createCard = function (emp) {
 </div>`
 }
 
-
-employees.forEach(emp => {
-    console.log(emp);
-    emp.salary = emp.calculateSalary(emp.level);
-    emp.render(emp);
+const renderFromLocalStorage = function (emp) {
+    document.querySelector(`.${emp.department.toLowerCase()}`).innerHTML += createCard(emp)
+}
+demoEmployees.forEach(emp => {
+    emp.salary = emp.calculateSalary(emp.level)
 })
+if (employees) {
+    employees = JSON.parse(employees)
+} else {
+    employees = demoEmployees;
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = e.target.fullName.value;
+    const image = e.target.imgUrl.value;
+    const level = e.target.level.value;
+    const dept = e.target.department.value;
+    const emp = new Employee(idGenerate(), name, dept, level, image, 0);
+    const exitstingEmployee = employees.find((employee) => {
+        employee.id === emp.id
+    })
+    console.log(exitstingEmployee);
+    if (!exitstingEmployee) {
+        emp.salary = emp.calculateSalary(level);
+        emp.render(emp);
+        employees.push(emp);
+        localStorage.setItem('employees', JSON.stringify(employees));
+    }
+    form.reset()
+})
+
+if (employees.length == 0) {
+    demoEmployees.forEach(emp => {
+
+        emp.render(emp);
+    })
+} else {
+    employees.forEach((emp) => {
+        renderFromLocalStorage(emp);
+    })
+}

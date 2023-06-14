@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <img src="" alt="logo">
-        <nav>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="" alt="logo">
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./accounting.html">Accounting</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="table">
+
+                <table>
+                    <thead id="table-head">
+                        <tr>
+                            <td>Department</td>
+                            <td># of Employees</td>
+                            <td>Total Salary</td>
+                            <td>Average</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                    <tfoot id="table-foot">
+                        <tr>
+                            <td>
+                                Total
+                            </td>
+                            <td class="total-emp" >0</td>
+                            <td class="total-salary">0</td>
+                            <td class="total-avg">0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </main>
+        </main>
+        <footer>
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./accounting.html">Accounting</a></li>
+                <li><a href="./accounting.html">About</a></li>
             </ul>
-        </nav>
-    </header>
-    <main>
-    </main>
-    <footer>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./accounting.html">About</a></li>
-        </ul>
-        <div class="container">
-            <h6 class="footer-copyright">
-                &copy; copyright reserved HR-management
-            </h6>
-        </div>
-    </footer>
-</body>
+            <div class="container">
+                <h6 class="footer-copyright">
+                    &copy; copyright reserved HR-management
+                </h6>
+            </div>
+        </footer>
+        <script src="js/accounting.js"></script>
+    </body>
+
 </html>

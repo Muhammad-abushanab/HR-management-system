@@ -120,47 +120,54 @@ img {
 /* employee ending  */
 
 /* form styling  */
-#form-section .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#form-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    margin: 50px auto;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#form-section .container form {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
+#form-section .container,
+#add-employee-form .container {
+    margin-bottom: 15px;
 }
 
-#form-section .container form .container {
-    display: flex;
-    flex-direction: row
+.container .heading {
+    text-align: center;
 }
 
-#form-section .container form .container label {
-    margin-right: 10px;
-    padding: 0px 7px;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-#form-section .container form .container input ,#form-section .container form .container select {
-    border-radius: 10px;
-    border: 2px solid #000;
-    padding: 7px;
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-#form-section .container form .container button {
-    margin-top: 10px;
-        padding: 10px 20px;
-        border-radius: 5%;
-        color: white;
-        background-color: #A6D0DD;
-        border: none;
-        cursor: pointer;
-        transition: 0.3s;
+
+button[type="submit"] {
+    background-color: #116A7B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
 }
-#form-section .container form .container button:hover {
-    color: black;
-    background-color: #FFD3B0;
+
+button[type="submit"]:hover {
+    background-color: #333;
+    transition: 0.5s;
+    color: white;
 }
 /* end of form styling */
 /* footer styling  */
@@ -207,3 +214,63 @@ footer .container .footer-copyright {
 }
 
 /* footer ending  */
+
+/* accounting editing  */
+#table {
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
+}
+
+table {
+    width: 1170px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+}
+
+table thead,.table-body,
+table tfoot {
+    /* display: table; */
+    text-align: center !important;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    background-color: #116A7B;
+    margin: 10px;
+    width: 100%;
+}
+
+table thead:hover,
+table tfoot:hover {
+    transition: 0.3s;
+    background-color: #0c4854;
+
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #818181;
+}
+
+tbody tr:nth-child(odd):hover {
+    transition: 0.3s;
+    background-color: #575757;
+}
+
+tr:nth-child(even) {
+    background-color: #a9a9a9;
+}
+
+tr:nth-child(even):hover {
+    transition: 0.3s;
+    background-color: #d0cfcf;
+}
+
+tr td {
+    padding: 10px;
+}
+
+tbody tr td {
+    color: #000000;
+    padding: 10px;
+}
